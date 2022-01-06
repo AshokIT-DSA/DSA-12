@@ -1,18 +1,37 @@
 package org.ar.array;
 
+import java.util.Scanner;
+
 public class MinAndMAx {
 	public static void main(String[] args) {
-            int ar[]= {-6,-1,-4,-6,-9,-10};
-            int n=ar.length;
-            int min=ar[0];
-            int max=ar[0];
-            for(int i=0;i<n;i++) {
-            	if(ar[i]<min)
-            		min=ar[i];
-            	//System.out.println(min+" "+i);
-            	if(ar[i]>max)
-            		max=ar[i];
-            }
-            System.out.println(max);
+		   int A[][]=new int[3][3];
+	        Scanner sc=new Scanner(System.in);
+	        for(int i=0;i<3;i++) {
+	       	 for(int j=0;j<3;j++) {
+	       		 A[i][j]=sc.nextInt();
+	       	 }
+	        }
+	        int B[][]=new int[3][3];
+	       
+	        for(int i=0;i<3;i++) {
+	       	 for(int j=0;j<3;j++) {
+	       		 B[i][j]=sc.nextInt();
+	       	 }
+	        }
+	        int cost=convert(A,B);
+	        System.out.println(cost);
+	        
+	}
+	private static int convert(int[][] a, int[][] b) {
+		// TODO Auto-generated method stub
+		//
+		int diff=0;
+		  for(int i=0;i<3;i++) {
+         	 for(int j=0;j<3;j++) {
+         		diff=diff+Math.abs(a[i][j]-b[i][j]);
+         	 }
+          }
+		
+		return diff;
 	}
 }
